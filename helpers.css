@@ -1,0 +1,17 @@
+.small {
+    font-size: 14px;
+    color: #ed1b2e;
+    margin-right: 5px;
+}
+
+.large {
+    font-size: 24px;
+    color: #ed1b2e;
+}
+
+.red {
+    color: #ed1b2e;
+}
+.pink {
+    color: pink;
+}
