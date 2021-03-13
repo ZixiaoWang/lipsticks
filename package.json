@@ -1,0 +1,14 @@
+{
+  "name": "lipsticks",
+  "version": "1.0.0",
+  "description": "Lipstick color picker",
+  "main": "index.mjs",
+  "author": "Jacky Wang (www.wangzixiao@gmail.com)",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "preact": "^10.5.12",
+    "preact-router": "^3.2.1"
+  }
+}
