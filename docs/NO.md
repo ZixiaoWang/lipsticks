@@ -1,6 +1,4 @@
 <code>
-#########################################################  
-
 &nbsp;
 
 &nbsp;&nbsp;Worry no more, my friend.
@@ -14,8 +12,4 @@
 &nbsp;
 
 &nbsp;&nbsp;click the [link](./), and start your journey!
-
-&nbsp;
-
-#########################################################  
 </code>

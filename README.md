@@ -1,6 +1,4 @@
 <code>
-  ######################################################### 
-  
   &nbsp;
   
   &nbsp;&nbsp;Hello,
@@ -13,8 +11,4 @@
   👉 [No, I can only see red](./docs/NO.md)     
   
   👉 [Yes, I can name every single one of them](./docs/YES.md) 
-
-  &nbsp;
-
-  ######################################################### 
 </code>
