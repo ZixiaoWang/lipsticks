@@ -8,6 +8,7 @@
   "private": false,
   "dependencies": {
     "fs-extra": "^9.1.0",
+    "history": "^5.0.0",
     "preact": "^10.5.12",
     "preact-router": "^3.2.1"
   }
