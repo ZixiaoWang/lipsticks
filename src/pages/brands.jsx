@@ -1,4 +1,5 @@
 import { h, Fragment } from 'preact';
+import { route } from 'preact-router';
 import { useState } from 'preact/hooks';
 import { brands, brandsMap } from '../services/brands.service.js';
 
@@ -11,6 +12,10 @@ export const BrandList = () => {
         } else {
             setSelectedBrand(brandName);
         }
+    }
+
+    const goto = (lipstick) => {
+        route('/lipstick/' + encodeURIComponent(lipstick.brand) + '/' + encodeURIComponent(lipstick.colour));
     }
 
     const item = (brand, index) => {
@@ -28,7 +33,11 @@ export const BrandList = () => {
                         <div className="matrix item-extra">
                             {
                                 colorsOfTheBrand.map((lipstick, lipstickIndex) => {
-                                    return <div className="item" key={lipstickIndex} style={{ backgroundColor: lipstick.hex }}></div>
+                                    return <div className="item" 
+                                        key={lipstickIndex} 
+                                        style={{ backgroundColor: lipstick.hex }}
+                                        onClick={() => goto(lipstick)}>
+                                    </div>
                                 })
                             }
                             <div className="angle-arrow"></div>

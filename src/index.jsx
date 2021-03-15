@@ -1,6 +1,6 @@
 import { h, render } from 'preact';
 import { Router, Route } from 'preact-router'
-import { Home, BrandList, ColorsMatrix } from './pages';
+import { Home, BrandList, ColorsMatrix, Lipstick } from './pages';
 
 const Main = () => {
     return (
@@ -9,6 +9,7 @@ const Main = () => {
                 <Home path="/" />
                 <BrandList path="/brands" />
                 <ColorsMatrix path="/colors" />
+                <Lipstick path="/lipstick/:brand/:colour" />
             </Router>
         </div>
     )

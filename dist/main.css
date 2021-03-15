@@ -25,6 +25,11 @@ input {
 }
 
 
+/** COMMON */
+.row {
+    padding: 8px 15px;
+}
+
 /** LIST */
 .list {
     width: 100vw;
@@ -165,4 +170,75 @@ input {
     top: 100px;
     left: 0px;
     box-sizing: border-box;
+}
+
+/** LIPSTICK */
+.lipstick {
+    width: 100vw;
+    max-width: 900px;
+    margin-top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #333333;
+}
+
+.lipstick-header {
+    align-items: center;
+    font-family: serif;
+}
+
+.lipstick > .lipstick-effect {
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: min(100vw, 600px);
+    display: flex;
+    position: relative;
+}
+
+.lipstick-effect > .lipstick-color {
+    width: 100%;
+    max-width: 600px;
+    height: 0px;
+    padding-top: min(100%, 600px);
+    background-color: red;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.lipstick-effect > .lipstick-cover {
+    width: 100%;
+    max-width: 600px;
+    height: 0px;
+    padding-top: min(100%, 600px);
+
+    background-image: url(/assets/lipstick-cover.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.lipstick-info .keyword {
+    display: block;
+    width: 100%;
+    font-family: sans-serif;
+    outline: none;
+    margin: 8px 0px;
+    padding: 15px;
+    border: 2px solid #cccccc;
+    border-radius: 15px;
+    height: auto;
+    min-height: 100px;
+    color: #999999;
+}
+
+.lipstick-info .keyword.copied {
+    border-color: #666666;
+    color: #333333;
 }

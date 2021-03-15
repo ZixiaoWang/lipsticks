@@ -30137,6 +30137,8 @@ exports.BrandList = void 0;
 
 var _preact = require("preact");
 
+var _preactRouter = require("preact-router");
+
 var _hooks = require("preact/hooks");
 
 var _brandsService = require("../services/brands.service.js");
@@ -30167,6 +30169,10 @@ var BrandList = function BrandList() {
     }
   };
 
+  var goto = function goto(lipstick) {
+    (0, _preactRouter.route)('/lipstick/' + encodeURIComponent(lipstick.brand) + '/' + encodeURIComponent(lipstick.colour));
+  };
+
   var item = function item(brand, index) {
     var colorsOfTheBrand = _brandsService.brandsMap.get(brand) || [];
     return (0, _preact.h)(_preact.Fragment, null, (0, _preact.h)("div", {
@@ -30185,6 +30191,9 @@ var BrandList = function BrandList() {
         key: lipstickIndex,
         style: {
           backgroundColor: lipstick.hex
+        },
+        onClick: function onClick() {
+          return goto(lipstick);
         }
       });
     }), (0, _preact.h)("div", {
@@ -30203,7 +30212,7 @@ var BrandList = function BrandList() {
 };
 
 exports.BrandList = BrandList;
-},{"preact":"../node_modules/preact/dist/preact.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","../services/brands.service.js":"services/brands.service.js"}],"pages/colors.jsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.module.js","preact-router":"../node_modules/preact-router/dist/preact-router.es.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","../services/brands.service.js":"services/brands.service.js"}],"pages/colors.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30213,22 +30222,31 @@ exports.ColorsMatrix = void 0;
 
 var _preact = require("preact");
 
+var _preactRouter = require("preact-router");
+
 var _lipsticksService = require("../services/lipsticks.service.js");
 
-var item = function item(lipstick, index) {
-  return (0, _preact.h)("div", {
-    className: "item",
-    key: index,
-    "data-hex": lipstick.hex,
-    "data-brand": lipstick.brand,
-    "data-color-name": lipstick.colour,
-    style: {
-      backgroundColor: lipstick.hex
-    }
-  });
-};
-
 var ColorsMatrix = function ColorsMatrix() {
+  var item = function item(lipstick, index) {
+    return (0, _preact.h)("div", {
+      className: "item",
+      key: index,
+      "data-hex": lipstick.hex,
+      "data-brand": lipstick.brand,
+      "data-color-name": lipstick.colour,
+      style: {
+        backgroundColor: lipstick.hex
+      },
+      onClick: function onClick() {
+        return goto(lipstick);
+      }
+    });
+  };
+
+  var goto = function goto(lipstick) {
+    (0, _preactRouter.route)('/lipstick/' + encodeURIComponent(lipstick.brand) + '/' + encodeURIComponent(lipstick.colour));
+  };
+
   return (0, _preact.h)(_preact.Fragment, null, (0, _preact.h)("div", {
     className: "matrix",
     id: "matrix"
@@ -30246,7 +30264,7 @@ var ColorsMatrix = function ColorsMatrix() {
 };
 
 exports.ColorsMatrix = ColorsMatrix;
-},{"preact":"../node_modules/preact/dist/preact.module.js","../services/lipsticks.service.js":"services/lipsticks.service.js"}],"pages/home.jsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.module.js","preact-router":"../node_modules/preact-router/dist/preact-router.es.js","../services/lipsticks.service.js":"services/lipsticks.service.js"}],"pages/home.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30300,7 +30318,106 @@ var Home = function Home() {
 };
 
 exports.Home = Home;
-},{"preact":"../node_modules/preact/dist/preact.module.js","preact-router":"../node_modules/preact-router/dist/preact-router.es.js"}],"pages/index.jsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.module.js","preact-router":"../node_modules/preact-router/dist/preact-router.es.js"}],"pages/lipstick.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Lipstick = void 0;
+
+var _preact = require("preact");
+
+var _hooks = require("preact/hooks");
+
+var _preactRouter = require("preact-router");
+
+var _brands = require("../services/brands.service");
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function copyToClipboard(containerid) {
+  var elem = document.getElementById(containerid);
+  elem.select();
+  elem.setSelectionRange(0, 1000);
+  document.execCommand('copy');
+  document.getSelection().removeAllRanges();
+  return true;
+}
+
+var Lipstick = function Lipstick(props) {
+  var lipsticks = _brands.brandsMap.get(props.brand) || [];
+  var lipstick = lipsticks.find(function (item) {
+    return item.colour.toLowerCase() === props.colour.toLowerCase();
+  });
+
+  var _useState = (0, _hooks.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      copied = _useState2[0],
+      setCopied = _useState2[1];
+
+  var copy = function copy() {
+    var result = copyToClipboard('lipstickinfo');
+
+    if (result) {
+      var ele = document.getElementById('lipstickinfo');
+
+      if (ele) {
+        ele.classList.add('copied');
+        setCopied(Math.random());
+      } else {
+        setCopied(-1 * Math.random());
+      }
+    } else {
+      setCopied(-1 * Math.random());
+    }
+  };
+
+  return (0, _preact.h)(_preact.Fragment, null, (0, _preact.h)("div", {
+    className: "lipstick"
+  }, (0, _preact.h)("div", {
+    className: "lipstick-effect"
+  }, (0, _preact.h)("div", {
+    className: "lipstick-color",
+    style: {
+      backgroundColor: lipstick.hex
+    }
+  }), (0, _preact.h)("div", {
+    className: "lipstick-cover"
+  })), (0, _preact.h)("div", {
+    className: "lipstick-info"
+  }, (0, _preact.h)("div", {
+    className: "row"
+  }, (0, _preact.h)("small", null, (0, _preact.h)("span", null, "\u70B9\u51FB\u590D\u5236\u54C1\u724C\u548C\u989C\u8272"), (0, _preact.h)("span", null, "\xA0\xA0"), copied !== 0 ? copied > 0 && (0, _preact.h)("span", {
+    className: "green"
+  }, "\u5DF2\u590D\u5236\u81F3\u60A8\u7684\u526A\u8D34\u677F") : copied < 0 && (0, _preact.h)("span", {
+    className: "red"
+  }, "\u672A\u80FD\u590D\u5236\uFF0C\u8BF7\u624B\u52A8\u9009\u62E9\u8303\u56F4\u5E76\u590D\u5236")), (0, _preact.h)("textarea", {
+    className: "keyword",
+    id: "lipstickinfo",
+    onClick: copy,
+    autoCorrect: "false"
+  }, props.brand, ", ", props.colour)))), (0, _preact.h)("header", {
+    className: "header lipstick-header"
+  }, (0, _preact.h)("span", null, props.brand), (0, _preact.h)("small", {
+    style: {
+      color: lipstick.hex
+    }
+  }, props.colour)));
+};
+
+exports.Lipstick = Lipstick;
+},{"preact":"../node_modules/preact/dist/preact.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","preact-router":"../node_modules/preact-router/dist/preact-router.es.js","../services/brands.service":"services/brands.service.js"}],"pages/index.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30345,7 +30462,20 @@ Object.keys(_home).forEach(function (key) {
     }
   });
 });
-},{"./brands":"pages/brands.jsx","./colors":"pages/colors.jsx","./home":"pages/home.jsx"}],"index.jsx":[function(require,module,exports) {
+
+var _lipstick = require("./lipstick");
+
+Object.keys(_lipstick).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _lipstick[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _lipstick[key];
+    }
+  });
+});
+},{"./brands":"pages/brands.jsx","./colors":"pages/colors.jsx","./home":"pages/home.jsx","./lipstick":"pages/lipstick.jsx"}],"index.jsx":[function(require,module,exports) {
 "use strict";
 
 var _preact = require("preact");
@@ -30363,6 +30493,8 @@ var Main = function Main() {
     path: "/brands"
   }), (0, _preact.h)(_pages.ColorsMatrix, {
     path: "/colors"
+  }), (0, _preact.h)(_pages.Lipstick, {
+    path: "/lipstick/:brand/:colour"
   })));
 };
 

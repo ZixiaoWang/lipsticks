@@ -1,26 +1,30 @@
 import { h, Fragment } from 'preact';
+import { route } from 'preact-router';
 import { SORTED_LIPSTICKS } from '../services/lipsticks.service.js';
 
-const item = (lipstick, index) => {
-    return (
-        <div className="item" 
-            key={index} 
-            data-hex={lipstick.hex} 
-            data-brand={lipstick.brand}
-            data-color-name={lipstick.colour}
-            style={{ backgroundColor: lipstick.hex }}>
-        </div>
-    )
-}
-
 export const ColorsMatrix = () => {
+
+    const item = (lipstick, index) => {
+        return (
+            <div className="item" 
+                key={index} 
+                data-hex={lipstick.hex} 
+                data-brand={lipstick.brand}
+                data-color-name={lipstick.colour}
+                style={{ backgroundColor: lipstick.hex }}
+                onClick={() => goto(lipstick)}>
+            </div>
+        )
+    }
+
+    const goto = (lipstick) => {
+        route('/lipstick/' + encodeURIComponent(lipstick.brand) + '/' + encodeURIComponent(lipstick.colour));
+    }
+
     return (
         <Fragment>
             <div className="matrix" id="matrix">
-                { 
-                    SORTED_LIPSTICKS
-                        .map(item) 
-                }
+                { SORTED_LIPSTICKS.map(item)  }
             </div>
             <header className="header">
                 <span>颜色</span>
