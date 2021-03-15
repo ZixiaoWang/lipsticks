@@ -12,6 +12,9 @@
     "preact": "^10.5.12",
     "preact-router": "^3.2.1"
   },
+  "resolutions": {
+    "flow-typed/semver": "7.1.3"
+  },
   "scripts": {
     "build": "parcel build -d ./dist -o index.js --no-cache --no-source-maps ./src/index.jsx",
     "parcel": "parcel"
