@@ -12,7 +12,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn install
-          yarn build
+          yarn parcel -d $GITHUB_WORKSPACE/dist -o index.js --no-cache --no-source-maps $GITHUB_WORKSPACE/src/index.jsx
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0

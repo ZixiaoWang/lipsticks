@@ -13,6 +13,7 @@
     "preact-router": "^3.2.1"
   },
   "scripts": {
-    "build": "parcel build -d ./dist -o index.js --no-cache --no-source-maps ./src/index.jsx"
+    "build": "parcel build -d ./dist -o index.js --no-cache --no-source-maps ./src/index.jsx",
+    "parcel": "parcel"
   }
 }
