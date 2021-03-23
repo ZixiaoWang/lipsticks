@@ -1,3 +1,7 @@
+.extra-small {
+    font-size: 10px;
+}
+
 .small {
     font-size: 14px;
     color: #ed1b2e;
@@ -19,4 +23,12 @@
 
 .green {
     color: green;
+}
+
+.grey {
+    color: #666666;
+}
+
+.center {
+    text-align: center;
 }

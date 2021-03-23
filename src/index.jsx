@@ -7,10 +7,10 @@ const Main = () => {
     return (
         <div className="container">
             <Router history={createHashHistory()}>
-                <Home path="/" />
                 <BrandList path="/brands" />
                 <ColorsMatrix path="/colors" />
                 <Lipstick path="/lipstick/:brand/:colour" />
+                <Home default />
             </Router>
         </div>
     )

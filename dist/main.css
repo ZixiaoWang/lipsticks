@@ -230,15 +230,25 @@ input {
     font-family: sans-serif;
     outline: none;
     margin: 8px 0px;
-    padding: 15px;
-    border: 2px solid #cccccc;
-    border-radius: 15px;
+    padding: 8px 4px;
+    border: none;
     height: auto;
-    min-height: 100px;
+    min-height: 35px;
     color: #999999;
 }
 
 .lipstick-info .keyword.copied {
     border-color: #666666;
     color: #333333;
+}
+
+.lipstick-button {
+    margin: 15px 0px;
+    background: white;
+    border: 2px solid #ed1b2e;
+    outline: 0px;
+    color: #ed1b2e;
+    padding: 12px 24px;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+    border-radius: 45px;
 }

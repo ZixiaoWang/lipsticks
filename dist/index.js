@@ -30398,16 +30398,28 @@ var Lipstick = function Lipstick(props) {
     className: "lipstick-info"
   }, (0, _preact.h)("div", {
     className: "row"
-  }, (0, _preact.h)("small", null, (0, _preact.h)("span", null, "\u70B9\u51FB\u590D\u5236\u54C1\u724C\u548C\u989C\u8272"), (0, _preact.h)("span", null, "\xA0\xA0"), copied !== 0 ? copied > 0 && (0, _preact.h)("span", {
-    className: "green"
-  }, "\u5DF2\u590D\u5236\u81F3\u60A8\u7684\u526A\u8D34\u677F") : copied < 0 && (0, _preact.h)("span", {
-    className: "red"
-  }, "\u672A\u80FD\u590D\u5236\uFF0C\u8BF7\u624B\u52A8\u9009\u62E9\u8303\u56F4\u5E76\u590D\u5236")), (0, _preact.h)("textarea", {
+  }, (0, _preact.h)("textarea", {
     className: "keyword",
     id: "lipstickinfo",
-    onClick: copy,
     autoCorrect: "false"
-  }, props.brand, ", ", props.colour)))), (0, _preact.h)("header", {
+  }, props.brand, ", ", props.colour), (0, _preact.h)("small", {
+    className: "extra-small"
+  }, (0, _preact.h)("span", null, "\xA0\xA0"), (0, _preact.h)("span", null, "\u8BF7\u8C28\u614E\u4F7F\u7528\u526A\u8D34\u677F\uFF0C\u4EE5\u9632\u6B62\u7B2C\u4E09\u65B9\u8F6F\u4EF6\u8BFB\u53D6\u60A8\u7684\u526A\u8D34\u677F"))), (0, _preact.h)("div", {
+    className: "row"
+  }, (0, _preact.h)("div", {
+    className: "center"
+  }, (0, _preact.h)("button", {
+    class: "lipstick-button",
+    onClick: copy
+  }, (0, _preact.h)("span", null, "\u70B9\u51FB\u590D\u5236\u54C1\u724C\u548C\u989C\u8272")))), (0, _preact.h)("div", {
+    className: "row"
+  }, (0, _preact.h)("div", {
+    className: "center"
+  }, copied !== 0 ? copied > 0 && (0, _preact.h)("span", {
+    class: "grey"
+  }, "\u5DF2\u590D\u5236\u81F3\u60A8\u7684\u526A\u8D34\u677F") : copied < 0 && (0, _preact.h)("span", {
+    className: "red"
+  }, "\u672A\u80FD\u590D\u5236\uFF0C\u8BF7\u624B\u52A8\u9009\u62E9\u8303\u56F4\u5E76\u590D\u5236"))))), (0, _preact.h)("header", {
     className: "header lipstick-header"
   }, (0, _preact.h)("span", null, props.brand), (0, _preact.h)("small", {
     style: {
@@ -31046,14 +31058,14 @@ var Main = function Main() {
     className: "container"
   }, (0, _preact.h)(_preactRouter.Router, {
     history: (0, _history.createHashHistory)()
-  }, (0, _preact.h)(_pages.Home, {
-    path: "/"
-  }), (0, _preact.h)(_pages.BrandList, {
+  }, (0, _preact.h)(_pages.BrandList, {
     path: "/brands"
   }), (0, _preact.h)(_pages.ColorsMatrix, {
     path: "/colors"
   }), (0, _preact.h)(_pages.Lipstick, {
     path: "/lipstick/:brand/:colour"
+  }), (0, _preact.h)(_pages.Home, {
+    default: true
   })));
 };
 
