@@ -7,4 +7,5 @@ const sortByLightness = (prev, next) => {
     return pCount < nCount ? -1 : 1;
 }
 
+window.LIPSTICKS = LIPSTICKS;
 export const SORTED_LIPSTICKS = LIPSTICKS.sort(sortByLightness);
