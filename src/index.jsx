@@ -1,6 +1,6 @@
 import { h, render } from 'preact';
-import { Router, Route } from 'preact-router'
-import { Home, BrandList, ColorsMatrix, Lipstick } from './pages';
+import { Router } from 'preact-router'
+import { Home, BrandList, ColorsMatrix, Lipstick, Redirect } from './pages';
 import { createHashHistory } from 'history';
 
 const Main = () => {
@@ -10,7 +10,8 @@ const Main = () => {
                 <BrandList path="/brands" />
                 <ColorsMatrix path="/colors" />
                 <Lipstick path="/lipstick/:brand/:colour" />
-                <Home default />
+                <Home path="/home" />
+                <Redirect path="/" to="/home" />
             </Router>
         </div>
     )
