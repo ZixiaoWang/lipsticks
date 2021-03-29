@@ -1,0 +1,34 @@
+.extra-small {
+    font-size: 10px;
+}
+
+.small {
+    font-size: 14px;
+    color: #ed1b2e;
+    margin-right: 5px;
+}
+
+.large {
+    font-size: 24px;
+    color: #ed1b2e;
+}
+
+.red {
+    color: #ed1b2e;
+}
+
+.pink {
+    color: pink;
+}
+
+.green {
+    color: green;
+}
+
+.grey {
+    color: #666666;
+}
+
+.center {
+    text-align: center;
+}
