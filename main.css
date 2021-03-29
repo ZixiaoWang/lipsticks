@@ -39,6 +39,7 @@ input {
     font-family: serif;
     font-weight: bold;
     color: #333333;
+    padding-bottom: 50px;
 }
 
 .list .item .angle-arrow {
@@ -81,6 +82,7 @@ input {
     justify-content: flex-start;
     align-items: flex-start;
     box-sizing: border-box;
+    padding-bottom: 50px;
 }
 
 .matrix > .item {
@@ -133,7 +135,7 @@ input {
     /* background-image: linear-gradient(45deg, pink, #ed1b2e); */
 }
 
-.home > button {
+.home button {
     display: inline-block;
     width: fit-content;
     padding: 12px;
@@ -148,7 +150,7 @@ input {
     position: relative;
 }
 
-.home > button:after {
+.home  button:after {
     content: '›';
     display: inline-block;
     width: 30px;
