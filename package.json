@@ -21,6 +21,6 @@
     "build": "parcel build -d ./dist -o index.js --no-cache --no-source-maps ./src/index.jsx",
     "parcel": "parcel",
     "predeploy": "yarn build",
-    "deploy": "gh-pages --dist dist --src src"
+    "deploy": "gh-pages --dist dist"
   }
 }
