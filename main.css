@@ -215,7 +215,7 @@ input {
     height: 0px;
     padding-top: min(100%, 600px);
 
-    background-image: url(/assets/lipstick-cover.png);
+    background-image: url(./assets/lipstick-cover.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
